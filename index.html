@@ -2,113 +2,98 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Key Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MINIMAL BACA</title>
+
 <style>
     body {
         margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        min-height: 100vh;
-        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #0d0d0d;
+        color: #ffffff;
     }
 
-    .container {
-        width: 90%;
-        max-width: 900px;
+    header {
+        text-align: center;
+        padding: 20px 10px;
+        font-size: 20px;
+        letter-spacing: 2px;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .wrapper {
+        padding: 16px;
+    }
+
+    .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
     }
 
     .card {
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(10px);
-        border-radius: 16px;
-        padding: 20px;
-        box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
-        transition: transform 0.3s, box-shadow 0.3s;
-        border: 1px solid rgba(255,255,255,0.1);
+        background: linear-gradient(135deg, #1a1a1a, #111);
+        border-radius: 14px;
+        padding: 16px;
+        box-shadow: 0 0 12px rgba(0, 255, 255, 0.15);
+        border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .card:hover {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 0 35px rgba(0, 255, 255, 0.35);
-    }
-
-    .key-name {
-        font-size: 18px;
-        letter-spacing: 1px;
+    .key {
+        font-size: 14px;
+        font-weight: 600;
         margin-bottom: 10px;
         color: #00ffff;
+        word-break: break-all;
     }
 
     .expire {
-        font-size: 14px;
-        margin-bottom: 12px;
-        opacity: 0.85;
-    }
-
-    .status {
-        display: inline-block;
-        padding: 6px 12px;
-        border-radius: 20px;
         font-size: 12px;
-        letter-spacing: 1px;
-    }
-
-    .active {
-        background: rgba(0, 255, 128, 0.2);
-        color: #00ff80;
-        border: 1px solid #00ff80;
-    }
-
-    .expired {
-        background: rgba(255, 0, 64, 0.2);
-        color: #ff0040;
-        border: 1px solid #ff0040;
+        opacity: 0.8;
     }
 
     footer {
-        position: fixed;
-        bottom: 10px;
-        font-size: 12px;
-        opacity: 0.5;
+        text-align: center;
+        font-size: 11px;
+        opacity: 0.4;
+        padding: 14px;
     }
 </style>
 </head>
+
 <body>
 
-<div class="container">
-    <div class="card">
-        <div class="key-name">KEY-ALPHA-001</div>
-        <div class="expire">Kadaluarsa: 12 Jan 2026</div>
-        <span class="status active">ACTIVE</span>
-    </div>
+<header>MINIMAL BACA</header>
 
-    <div class="card">
-        <div class="key-name">KEY-BETA-002</div>
-        <div class="expire">Kadaluarsa: 30 Nov 2025</div>
-        <span class="status active">ACTIVE</span>
-    </div>
+<div class="wrapper">
+    <div class="grid">
 
-    <div class="card">
-        <div class="key-name">KEY-GAMMA-003</div>
-        <div class="expire">Kadaluarsa: 10 Jul 2024</div>
-        <span class="status expired">EXPIRED</span>
-    </div>
+        <div class="card">
+            <div class="key">KEY LOKLOK 12337</div>
+            <div class="expire">Kadaluarsa: 10-06-2026</div>
+        </div>
 
-    <div class="card">
-        <div class="key-name">KEY-DELTA-004</div>
-        <div class="expire">Kadaluarsa: 01 Mar 2025</div>
-        <span class="status expired">EXPIRED</span>
+        <div class="card">
+            <div class="key">KEY LOKLOK 22338</div>
+            <div class="expire">Kadaluarsa: 15-09-2025</div>
+        </div>
+
+        <div class="card">
+            <div class="key">KEY LOKLOK 32339</div>
+            <div class="expire">Kadaluarsa: 01-01-2025</div>
+        </div>
+
+        <div class="card">
+            <div class="key">KEY LOKLOK 42340</div>
+            <div class="expire">Kadaluarsa: 20-12-2024</div>
+        </div>
+
     </div>
 </div>
 
 <footer>
-    © 2025 Key Monitor
+    © 2025
 </footer>
 
 </body>

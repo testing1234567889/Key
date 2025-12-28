@@ -29,10 +29,7 @@ header{
 }
 
 /* LAYOUT */
-.wrapper{
-    padding:14px;
-}
-
+.wrapper{padding:14px;}
 .grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -51,7 +48,7 @@ header{
 
 .key-title{
     font-size:12px;
-    opacity:0.6;
+    opacity:.6;
     margin-bottom:6px;
 }
 
@@ -61,12 +58,11 @@ header{
     color:#00ff80;
     margin-bottom:10px;
     word-break:break-word;
-    text-align:center;
 }
 
 .expire{
     font-size:12px;
-    opacity:0.75;
+    opacity:.75;
     margin-bottom:8px;
 }
 
@@ -75,10 +71,20 @@ header{
     font-size:11px;
     padding:4px 12px;
     border-radius:12px;
-    background:rgba(0,255,128,0.15);
-    color:#00ff80;
-    border:1px solid #00ff80;
     margin-bottom:12px;
+    border:1px solid;
+}
+
+.status.active{
+    background:rgba(0,255,128,.15);
+    color:#00ff80;
+    border-color:#00ff80;
+}
+
+.status.expired{
+    background:rgba(255,0,64,.15);
+    color:#ff0040;
+    border-color:#ff0040;
 }
 
 .copy-btn{
@@ -86,13 +92,20 @@ header{
     padding:8px;
     font-size:12px;
     border-radius:10px;
-    background:rgba(0,255,128,0.15);
-    color:#00ff80;
-    border:1px solid #00ff80;
+    border:1px solid;
+    background:transparent;
 }
 
-.copy-btn:active{
-    opacity:0.6;
+.copy-btn.active{
+    background:rgba(0,255,128,.15);
+    color:#00ff80;
+    border-color:#00ff80;
+}
+
+.copy-btn.expired{
+    color:#555;
+    border-color:#333;
+    opacity:.4;
 }
 
 /* K ANIMATION */
@@ -105,21 +118,21 @@ header{
     letter-spacing:6px;
     animation:pulse 2s infinite;
     text-shadow:
-        0 0 10px rgba(0,255,128,0.6),
-        0 0 25px rgba(0,255,128,0.4),
-        0 0 45px rgba(0,255,128,0.2);
+        0 0 10px rgba(0,255,128,.6),
+        0 0 25px rgba(0,255,128,.4),
+        0 0 45px rgba(0,255,128,.2);
 }
 
 @keyframes pulse{
-    0%{transform:scale(1);opacity:0.7;}
-    50%{transform:scale(1.2);opacity:1;}
-    100%{transform:scale(1);opacity:0.7;}
+    0%{transform:scale(1);opacity:.7}
+    50%{transform:scale(1.2);opacity:1}
+    100%{transform:scale(1);opacity:.7}
 }
 
 footer{
     text-align:center;
     font-size:11px;
-    opacity:0.35;
+    opacity:.35;
     padding:14px;
 }
 
@@ -129,21 +142,29 @@ footer{
     bottom:30px;
     left:50%;
     transform:translateX(-50%) translateY(20px);
-    background:rgba(0,255,128,0.15);
-    color:#00ff80;
-    border:1px solid #00ff80;
+    background:#111;
     padding:10px 18px;
     border-radius:20px;
     font-size:12px;
     opacity:0;
     pointer-events:none;
-    transition:all .3s ease;
-    box-shadow:0 0 15px rgba(0,255,128,0.4);
+    transition:.3s;
+    box-shadow:0 0 15px rgba(0,0,0,.6);
 }
 
 #toast.show{
     opacity:1;
     transform:translateX(-50%) translateY(0);
+}
+
+#toast.success{
+    color:#00ff80;
+    border:1px solid #00ff80;
+}
+
+#toast.error{
+    color:#ff0040;
+    border:1px solid #ff0040;
 }
 </style>
 </head>
@@ -155,36 +176,36 @@ footer{
 <div class="wrapper">
 <div class="grid">
 
-    <div class="card">
+    <div class="card" data-expire="2028-06-10">
         <div class="key-title">KEY LOKLOK</div>
-        <div class="key-value" id="k1">Abcdj344</div>
+        <div class="key-value">Abcdj344</div>
         <div class="expire">Kadaluarsa: 10-06-2028</div>
-        <div class="status">ACTIVE</div>
-        <button class="copy-btn" onclick="copyKey('k1')">COPY KEY</button>
+        <div class="status"></div>
+        <button class="copy-btn">COPY KEY</button>
     </div>
 
-    <div class="card">
+    <div class="card" data-expire="2026-12-01">
         <div class="key-title">KEY LOKTV</div>
-        <div class="key-value" id="k2">ZXCV9912</div>
+        <div class="key-value">ZXCV9912</div>
         <div class="expire">Kadaluarsa: 01-12-2026</div>
-        <div class="status">ACTIVE</div>
-        <button class="copy-btn" onclick="copyKey('k2')">COPY KEY</button>
+        <div class="status"></div>
+        <button class="copy-btn">COPY KEY</button>
     </div>
 
-    <div class="card">
+    <div class="card" data-expire="2025-05-22">
         <div class="key-title">KEY MOVIEBOX</div>
-        <div class="key-value" id="k3">QWER5544</div>
+        <div class="key-value">QWER5544</div>
         <div class="expire">Kadaluarsa: 22-05-2025</div>
-        <div class="status">ACTIVE</div>
-        <button class="copy-btn" onclick="copyKey('k3')">COPY KEY</button>
+        <div class="status"></div>
+        <button class="copy-btn">COPY KEY</button>
     </div>
 
-    <div class="card">
+    <div class="card" data-expire="2024-11-19">
         <div class="key-title">KEY HITTV</div>
-        <div class="key-value" id="k4">ASDF7788</div>
+        <div class="key-value">ASDF7788</div>
         <div class="expire">Kadaluarsa: 19-11-2024</div>
-        <div class="status">ACTIVE</div>
-        <button class="copy-btn" onclick="copyKey('k4')">COPY KEY</button>
+        <div class="status"></div>
+        <button class="copy-btn">COPY KEY</button>
     </div>
 
 </div>
@@ -194,17 +215,42 @@ footer{
 
 <footer>©KimochiFUN_2025</footer>
 
-<div id="toast">KEY COPIED</div>
+<div id="toast"></div>
 
 <script>
-function copyKey(id){
-    navigator.clipboard.writeText(
-        document.getElementById(id).innerText
-    );
-    const toast=document.getElementById("toast");
-    toast.classList.add("show");
+const toast = document.getElementById("toast");
+
+function showToast(text,type){
+    toast.textContent=text;
+    toast.className="";
+    toast.classList.add("show",type);
     setTimeout(()=>toast.classList.remove("show"),1500);
 }
+
+document.querySelectorAll(".card").forEach(card=>{
+    const expireDate = new Date(card.dataset.expire);
+    const today = new Date();
+    today.setHours(0,0,0,0);
+
+    const status = card.querySelector(".status");
+    const btn = card.querySelector(".copy-btn");
+    const key = card.querySelector(".key-value").innerText;
+
+    if(today > expireDate){
+        status.textContent="EXPIRED";
+        status.classList.add("expired");
+        btn.classList.add("expired");
+        btn.onclick=()=>showToast("KEY EXPIRED","error");
+    }else{
+        status.textContent="ACTIVE";
+        status.classList.add("active");
+        btn.classList.add("active");
+        btn.onclick=()=>{
+            navigator.clipboard.writeText(key);
+            showToast("KEY COPIED","success");
+        };
+    }
+});
 
 document.addEventListener("keydown",e=>{
     if(e.ctrlKey||e.metaKey)e.preventDefault();

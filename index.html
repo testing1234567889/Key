@@ -118,6 +118,29 @@ footer{
     opacity:0.35;
     padding:14px;
 }
+
+/* TOAST */
+#toast{
+    position:fixed;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%) translateY(20px);
+    background:rgba(0,255,128,0.15);
+    color:#00ff80;
+    border:1px solid #00ff80;
+    padding:10px 18px;
+    border-radius:20px;
+    font-size:12px;
+    opacity:0;
+    pointer-events:none;
+    transition:all .3s ease;
+    box-shadow:0 0 15px rgba(0,255,128,0.4);
+}
+
+#toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+}
 </style>
 </head>
 
@@ -137,7 +160,7 @@ footer{
     </div>
 
     <div class="card">
-        <div class="key-title">KEY LOKLOK</div>
+        <div class="key-title">KEY LOKTV</div>
         <div class="key-value" id="k2">ZXCV9912</div>
         <div class="expire">Kadaluarsa: 01-12-2026</div>
         <div class="status">ACTIVE</div>
@@ -145,7 +168,7 @@ footer{
     </div>
 
     <div class="card">
-        <div class="key-title">KEY LOKLOK</div>
+        <div class="key-title">KEY MOVIEBOX</div>
         <div class="key-value" id="k3">QWER5544</div>
         <div class="expire">Kadaluarsa: 22-05-2025</div>
         <div class="status">ACTIVE</div>
@@ -153,7 +176,7 @@ footer{
     </div>
 
     <div class="card">
-        <div class="key-title">KEY LOKLOK</div>
+        <div class="key-title">KEY HITTV</div>
         <div class="key-value" id="k4">ASDF7788</div>
         <div class="expire">Kadaluarsa: 19-11-2024</div>
         <div class="status">ACTIVE</div>
@@ -166,14 +189,23 @@ footer{
 <!-- ANIMATED K -->
 <div class="k-anim">K</div>
 
-<footer>© 2025</footer>
+<footer>©KimochiFUN_2025</footer>
+
+<!-- TOAST -->
+<div id="toast">KEY COPIED</div>
 
 <script>
 function copyKey(id){
     navigator.clipboard.writeText(
         document.getElementById(id).innerText
     );
-    alert("KEY COPIED");
+
+    const toast = document.getElementById("toast");
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    },1500);
 }
 
 document.addEventListener("keydown",function(e){

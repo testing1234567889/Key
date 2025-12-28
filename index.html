@@ -28,6 +28,7 @@ header{
     border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
+/* LAYOUT */
 .wrapper{
     padding:14px;
 }
@@ -38,26 +39,29 @@ header{
     gap:14px;
 }
 
+/* CARD */
 .card{
     background:linear-gradient(160deg,#0f0f0f,#050505);
     border-radius:16px;
-    padding:14px;
+    padding:16px 12px;
     border:1px solid rgba(255,255,255,0.07);
     box-shadow:0 0 14px rgba(0,255,128,0.15);
+    text-align:center;
 }
 
 .key-title{
     font-size:12px;
     opacity:0.6;
-    margin-bottom:4px;
+    margin-bottom:6px;
 }
 
 .key-value{
-    font-size:14px;
-    font-weight:600;
+    font-size:15px;
+    font-weight:700;
     color:#00ff80;
     margin-bottom:10px;
     word-break:break-word;
+    text-align:center;
 }
 
 .expire{
@@ -69,12 +73,12 @@ header{
 .status{
     display:inline-block;
     font-size:11px;
-    padding:4px 10px;
+    padding:4px 12px;
     border-radius:12px;
     background:rgba(0,255,128,0.15);
     color:#00ff80;
     border:1px solid #00ff80;
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 .copy-btn{
@@ -186,12 +190,10 @@ footer{
 </div>
 </div>
 
-<!-- ANIMATED K -->
 <div class="k-anim">K</div>
 
 <footer>©KimochiFUN_2025</footer>
 
-<!-- TOAST -->
 <div id="toast">KEY COPIED</div>
 
 <script>
@@ -199,19 +201,13 @@ function copyKey(id){
     navigator.clipboard.writeText(
         document.getElementById(id).innerText
     );
-
-    const toast = document.getElementById("toast");
+    const toast=document.getElementById("toast");
     toast.classList.add("show");
-
-    setTimeout(()=>{
-        toast.classList.remove("show");
-    },1500);
+    setTimeout(()=>toast.classList.remove("show"),1500);
 }
 
-document.addEventListener("keydown",function(e){
-    if(e.ctrlKey||e.metaKey){
-        e.preventDefault();
-    }
+document.addEventListener("keydown",e=>{
+    if(e.ctrlKey||e.metaKey)e.preventDefault();
 });
 </script>
 
